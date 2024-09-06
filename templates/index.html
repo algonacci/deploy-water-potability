@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "includes/head.html" %}
+  <body>
+    <div class="container mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Training</h1>
+          <form action="/" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="csvFile" class="form-label">Upload CSV file:</label>
+              <input
+                type="file"
+                id="csvFile"
+                name="csvFile"
+                accept=".csv"
+                class="form-control"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+          <div id="result" class="mt-3">
+            {% if result %}
+            <h2 class="mb-3">Model Results</h2>
+            {{ result | safe }} {% endif %}
+          </div>
+
+          <div id="data" class="mt-3">
+            {% if data %}
+            <h2 class="mb-3">Data</h2>
+            {{ data | safe }} {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include "includes/script.html" %}
+  </body>
+</html>
